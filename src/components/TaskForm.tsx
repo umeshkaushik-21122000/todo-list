@@ -18,7 +18,7 @@ export default function TaskForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={taskText}
@@ -26,7 +26,7 @@ export default function TaskForm() {
         placeholder="Add a new task"
         className="border p-2 mr-2"
       />
-      <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+      <button type="submit" className="bg-black text-white p-2 rounded">
         Add Task
       </button>
     </form>
