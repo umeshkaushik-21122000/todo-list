@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useTaskContext } from '@/context/TaskContext';
 
-const options = ['all', 'completed', 'incomplete'] as const; 
+const options = ['all', 'completed', 'incomplete']; 
 
 export default function TaskFilter() {
   const { dispatch } = useTaskContext();
@@ -10,11 +10,9 @@ export default function TaskFilter() {
 
   const handleClick = (index: number) => {
     setSelected(index);
+    dispatch({ type: 'SET_FILTER', payload: options[index] });
   };
 
-  const handleDispatch = () => {
-    dispatch({ type: 'SET_FILTER', payload: options[selected] });
-  };
 
   return (
     <div className="flex gap-x-3 text-white  text-sm">
@@ -24,7 +22,6 @@ export default function TaskFilter() {
           className={`border px-4  py-2 rounded-lg ${index === selected ? 'bg-green-600' : 'bg-black'}`}
           onClick={() => {
             handleClick(index);
-            handleDispatch();
           }}
         >
           {val.toUpperCase()}
